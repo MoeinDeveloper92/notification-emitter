@@ -16,7 +16,7 @@ const fetchEvents = async () => {
     .substring(0, 10); // "yyyy-mm-dd"
 
   // Construct the request URL with the start and end dates
-  const url = `https://graph.microsoft.com/v1.0/sites/root/lists/{list_id}/items?$filter=fields/EventType eq 'Event' and fields/EventStartDate ge ${startDate} and fields/EventStartDate lt ${endDate}`;
+  const url = `https://graph.microsoft.com/v1.0/sites/root/lists/{list_id}/items?$filter=fields/EventType='Event'&fields/EventStartDate=${startDate}&fields/EventStartDate=${endDate}`;
 
   // Call the Microsoft Graph API to retrieve the events
   const response = await fetch(url, {
