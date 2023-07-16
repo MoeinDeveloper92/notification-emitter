@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const Event = require("../model/eventModel");
 const getToken = require("../config/accessTokenAzure");
+
 const fetchEvents = async () => {
   // Get the access token for the Microsoft Graph API
   const accessToken = await getToken();
