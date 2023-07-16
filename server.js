@@ -6,6 +6,7 @@ const connectDB = require("./server/config/db");
 const dotenv = require("dotenv").config();
 const app = express();
 connectDB();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(errorHandler);
