@@ -25,7 +25,7 @@ const obtainToken = async () => {
 
   const data = res.json();
   const { access_token } = data;
-  const myToken = accessToken;
+  const myToken = access_token;
 };
 
 const pca = new msal.PublicClientApplication(config);
