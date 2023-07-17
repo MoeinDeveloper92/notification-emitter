@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 function SignIn() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const { name, email, password } = formData;
+  const { email, password } = formData;
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,6 +21,9 @@ function SignIn() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
+    toast.success("You have signed in successfully");
+    navigate("/");
     //when we submit we send it to /users
   };
   return (
