@@ -9,6 +9,8 @@ const fetchEvents = async () => {
   // Get the current date and time
   const now = new Date();
 
+  //source => https://stackoverflow.com/questions/5741632/javascript-date-7-days
+
   // Calculate the start and end dates for the next 7 days
   const startDate = now.toISOString().substring(0, 10); // "yyyy-mm-dd"
   const endDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000)
@@ -16,7 +18,7 @@ const fetchEvents = async () => {
     .substring(0, 10); // "yyyy-mm-dd"
 
   // Construct the request URL with the start and end dates
-  const url = `https://graph.microsoft.com/v1.0/sites/root/lists/{list_id}/items?$filter=fields/EventType='Event'&fields/EventStartDate=${startDate}&fields/EventStartDate=${endDate}`;
+  const url = `https://graph.microsoft.com/v1.0/sites/root/lists/${process.env.ID}/items?$filter=fields/EventType='Event'&fields/EventStartDate=${startDate}&fields/EventStartDate=${endDate}`;
 
   // Call the Microsoft Graph API to retrieve the events
   const response = await fetch(url, {
