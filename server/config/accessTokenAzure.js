@@ -9,24 +9,24 @@ const config = {
 };
 
 //instead of bellow function we can make use of fetch Request
-const obtainToken = async () => {
-  const res = await fetch(`${auth.authority}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: {
-      grant_type: "client_credentials",
-      client_id: process.env.CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
-      scope: "https://graph.microsoft.com/.default",
-    },
-  });
+// const obtainToken = async () => {
+//   const res = await fetch(`${auth.authority}`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/x-www-form-urlencoded",
+//     },
+//     body: {
+//       grant_type: "client_credentials",
+//       client_id: process.env.CLIENT_ID,
+//       client_secret: process.env.CLIENT_SECRET,
+//       scope: "https://graph.microsoft.com/.default",
+//     },
+//   });
 
-  const data = res.json();
-  const { access_token } = data;
-  const myToken = access_token;
-};
+//   const data = res.json();
+//   const { access_token } = data;
+//   const myToken = access_token;
+// };
 
 const pca = new msal.PublicClientApplication(config);
 
